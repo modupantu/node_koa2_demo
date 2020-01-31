@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script>
+		window.onload=function(){
+			var oTxtUser=document.getElementById('user')
+			var oTxtpassword=document.getElementById('password')
+			var reg_btn=document.getElementById('reg_btn')
+			var login=document.getElementById('login')
+			login.onclick=function(){
+				ajax({
+					url:'/user',
+					data:{
+						act:'login',
+						user:oTxtUser.value,
+						password:oTxtpassword.value
+					},
+					type:'post',
+					success:function(str){
+						var json=eval("("+str+")");
+						if(json.ok){
+							alert('ok')
+						}else{
+							alert('err'+json.msg)
+						}
+					},
+					error:function(err){
+						alert('err'+err)
+					}
+				})
+			}
+			reg_btn.onclick=function(){
+				ajax({
+					url:'/user',
+					data:{
+						act:'reg',
+						user:oTxtUser.value,
+						password:oTxtpassword.value
+					},
+					type:'post',
+					success:function(str){
+						var json=eval("("+str+")");
+						if(json.ok){
+							alert('ok')
+						}else{
+							alert('err'+json.msg)
+						}
+					},
+					error:function(err){
+						alert('err'+err)
+					}
+				})
+			}
+
+		}
+	</script>
+</head>
+<body>
+	用户名： <input type="text" id="user" ><br>
+	mima: <input type="password" id="password"><br>
+	<input type="button" value="注册" id="reg_btn"><br>
+	<input type="button" value="登陆" id="login">
+</body>
+</html>

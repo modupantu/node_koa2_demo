@@ -1,0 +1,2 @@
+/login?user=xxx&pass=xxx
+=> {ok:true/false,mag:'yuanyng'}

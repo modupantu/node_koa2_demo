@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-static": "^1.2.6"
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./ajax.js"></script>
+    <script>
+        window.onload=function () {
+           var oUser=document.querySelector('#user');
+           var oPass=document.querySelector('#pass');
+           var oLogin=document.querySelector('#login');
+            oLogin.onclick=function () {
+                ajax({
+                    url:'/login',
+                    data:{
+                       user:oUser.value,
+                       pass:oPass.value
+                    },
+                    success:function (res) {
+                        let json=eval('('+res+')');
+                        if(json.ok){
+                            alert('success')
+                        }else{
+                            alert('err'+json.msg)
+                        }
+                    },
+                    error:function (err) {
+                        alert('shibai')
+
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+   user <input type="text" id="user">
+   pass <input type="password" id="pass">
+   <input type="button" value="login" id="login">
+</body>
+</html>
