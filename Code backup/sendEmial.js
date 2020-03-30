@@ -7,8 +7,8 @@ var transporter = nodemailer.createTransport({
   secure: true,
   // secureConnection: true, // 使用SSL方式（安全方式，防止被窃取信息）
   auth: {
-    user: 'caoruichun@yeah.net',
-    pass: 'caoruichun123'
+    user: '你的邮箱',
+    pass: '你的邮箱密码'
   }
 })
 // 发送消息
